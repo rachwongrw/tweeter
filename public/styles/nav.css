@@ -15,6 +15,7 @@ nav {
   width: 100%;
   padding-left: 2em;
   padding-right: 2em;
+  z-index: 99;
 }
 
 #nav-bar .logo {
