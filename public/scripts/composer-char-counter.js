@@ -4,9 +4,9 @@ $(document).ready(function () {
     let count = 140 - this.textLength;
     $(this).siblings()[1].innerHTML = count;  //  accessing the text length the counter - this allows us to use 'this'
     if (count < 0) { // make the count go red when less than zero
-      $(this).next().next().addClass('makeRed');  //  addClass is access CSS to make it red
-    } else if (count > 0 && $(this).next().next().hasClass('makeRed')) {  // if count > 0 (true) and 'counter has makeRed class' is false - then this won't fire
-      $(this).next().next().removeClass('makeRed'); //  this will try and fire if we didn't have the conditionals - i.e. removing the makeRed class when its not applied.
+      $(this).next().next().addClass('error');  //  addClass is access CSS to make it red
+    } else if (count > 0 && $(this).next().next().hasClass('error')) {  // if count > 0 (true) and 'counter has error class' is false - then this won't fire
+      $(this).next().next().removeClass('error'); //  this will try and fire if we didn't have the conditionals - i.e. removing the error class when its not applied.
     }
   });
 });

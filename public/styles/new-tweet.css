@@ -8,7 +8,6 @@
   border-radius: 4px;
   background-color: #eee;
   border-radius: 8px; 
-  /* height: 400px; */
 }
 
 .new-tweet h2 {
@@ -36,6 +35,54 @@
   font-style: italic;
 }
 
-.new-tweet .counter.makeRed {
+.error { /* used for the counter when it reaches over 140 characters */
   color: red;
+}
+
+article.tweet {
+  background-color: #eee;
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+}
+
+.tweet-header {
+  display: flex;
+  height: 50px;
+  margin: 8px;
+}
+
+.tweet-header img {
+  width: 3em;
+  height: 3em;
+  align-self: center;
+}
+
+.tweet-header span {
+  margin-left: auto;
+  align-self: center;
+}
+
+.tweet-header h2 {
+  margin: 0;
+  padding-left: 8px;
+  align-self: center;
+}
+
+
+.tweet-content{
+  background-color: white;
+  padding: 16px;
+  margin: auto;
+  border-bottom: 1px solid #d1d1d1;
+}
+
+.tweet-footer {
+  padding: 8px;
+  font-size: smaller;
+  background-color: white;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.tweet-header :hover {
+  border-color: black;
 }
