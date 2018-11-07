@@ -49,6 +49,7 @@ article.tweet {
   display: flex;
   height: 50px;
   margin: 8px;
+  opacity: 0.5;
 }
 
 .tweet-header img {
@@ -68,21 +69,46 @@ article.tweet {
   align-self: center;
 }
 
-
 .tweet-content{
   background-color: white;
   padding: 16px;
+  font-size: 1em;
   margin: auto;
   border-bottom: 1px solid #d1d1d1;
 }
 
 .tweet-footer {
   padding: 8px;
+  display: flex;
+  height: 30px;
   font-size: smaller;
   background-color: white;
   border-radius: 0px 0px 8px 8px;
 }
 
-.tweet-header :hover {
-  border-color: black;
+article.tweet:hover .tweet-header {
+  opacity: 1;
 }
+
+article.tweet:hover {
+  border-color: black;
+  opacity: 1;
+}
+
+article.tweet:hover img {
+  display: block;
+  opacity: 1;
+}
+
+.tweet-footer img {
+  height: 1em;
+  width: 1em;
+  margin-left: auto;
+  display: none;
+}
+
+/* .tweet-footer:hover img {
+  opacity: 1;
+} */
+
+/* img source: https://www.google.ca/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwizkcmitMHeAhVbHjQIHTmRBHAQjhx6BAgBEAM&url=https%3A%2F%2Fgithub.com%2FInfernus101%2FProfileUI&psig=AOvVaw2JW3esCol4Uy4VAdPj9XLh&ust=1541644375560741 */
