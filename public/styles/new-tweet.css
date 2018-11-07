@@ -35,3 +35,7 @@
   margin-top: 8px;
   font-style: italic;
 }
+
+.new-tweet .counter.makeRed {
+  color: red;
+}
