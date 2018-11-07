@@ -81,9 +81,9 @@ article.tweet:hover {
 }
 
 .icons {
-  display: flex;
   float: right;
 }
+
 .tweet-footer {
   padding: 8px;
   height: 30px;
@@ -102,17 +102,14 @@ article.tweet:hover {
 }
 
 article.tweet:hover img {
-  display: block;
+  display: inline-block;
   opacity: 1;
 }
 
 .tweet-footer img {
-  height: 1.5em;
-  width: 1.5em;
+  height: 1em;
+  width: 1em;
   margin-left: auto;
+  margin: 0 .2em; /* shorthand: first value represents top and bottom, .2em represents left and right */
   display: none;
-  padding: 2.5px;
 }
-
-
-/* https://raw.githubusercontent.com/Infernus101/ProfileUI/0690f5e61a9f7af02c30342d4d6414a630de47fc/icon.png */
