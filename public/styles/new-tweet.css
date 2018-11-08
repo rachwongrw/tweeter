@@ -9,6 +9,10 @@
   border-radius: 8px; 
 }
 
+article.tweet {
+  margin-bottom: 16px;
+}
+
 .new-tweet h2 {
   margin: 4px;
   border-bottom: 1px black solid;
@@ -101,15 +105,12 @@ article.tweet:hover {
   opacity: 1;
 }
 
-article.tweet:hover img {
+article.tweet:hover .fa-flag, article.tweet:hover .fa-retweet, article.tweet:hover .fa-heart {
   display: inline-block;
   opacity: 1;
 }
 
-.tweet-footer img {
-  height: 1em;
-  width: 1em;
-  margin-left: auto;
-  margin: 0 .2em; /* shorthand: first value represents top and bottom, .2em represents left and right */
+.fa-flag, .fa-retweet, .fa-heart {
+  margin: 0 4px;
   display: none;
 }

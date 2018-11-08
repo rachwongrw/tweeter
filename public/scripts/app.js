@@ -57,36 +57,21 @@ function createTweetElement({
   content: { text },
   created_at
 }) {
-  const $makeArticle = $(`<article>`).addClass("tweet"); // make empty article
-  const $makeHeader = $(`<header>`).appendTo($makeArticle).addClass("tweet-header"); // make header 
-  const $addDP = $(`<img>`).prop(`src`, small).appendTo($makeHeader); //  add icon to header 
-  const $addName = $(`<h2>`).text(name).appendTo($makeHeader); // add name to header 
-  const $addHandle = $(`<span>`).text(handle).appendTo($makeHeader); // add handle to header
-  // add tweet content
-  const $tweetContent = $(`<p>`).text(text).addClass("tweet-content").appendTo($makeArticle);
-  // add footer
-  const $makeFooter = $(`<footer>`).text(created_at).appendTo($makeArticle).addClass("tweet-footer");
-  // const $addIcons = $(`<div>`).append($makeFooter).addClass("icons"); // add div for icons
-  // const $addFlagIcon = $(`<img>`).appendTo($addIcons); // add each icon 
-  // const $addRetweetIcon = $(`<img>`).prop(`src`, "https://cdn0.iconfinder.com/data/icons/arrows-1-5/128/Retweet-Refresh-Reply-Sync-Tweet-Arrow-Motion-512.png").appendTo($addIcons); 
-  // const $addHeartIcon = $(`<img>`).prop(`src`, "https://www.freeiconspng.com/uploads/love-heart-icon-14.png").appendTo($addIcons);
+    const $makeArticle = $(`<article>`).addClass("tweet"); // make empty article
+    const $makeHeader = $(`<header>`).appendTo($makeArticle).addClass("tweet-header"); // make header 
+    const $addDP = $(`<img>`).prop(`src`, small).appendTo($makeHeader); //  add icon to header 
+    const $addName = $(`<h2>`).text(name).appendTo($makeHeader); // add name to header 
+    const $addHandle = $(`<span>`).text(handle).appendTo($makeHeader); // add handle to header
+    // add tweet content
+    const $tweetContent = $(`<p>`).text(text).addClass("tweet-content").appendTo($makeArticle);
+    // add footer
+    const $makeFooter = $(`<footer>`).text(created_at).appendTo($makeArticle).addClass("tweet-footer");
+    const $addIcons = $(`<div>`).appendTo($makeFooter).addClass("icons"); // add div for icons
+    const $addFlagIcon = $(`<i class="fas fa-flag"></i>`).appendTo($addIcons); // add each icon 
+    const $addRetweetIcon = $(`<i class="fas fa-retweet"></i>`).appendTo($addIcons); 
+    const $addHeartIcon = $(`<i class="fas fa-heart"></i>`).appendTo($addIcons);
 
-
-  // <header class="tweet-header">
-  //     <img src="${tweetData.user.avatars.small}">
-  //     <h2>${tweetData.user.name}</h2>
-  //     <span>${tweetData.user.handle}</span>
-  // </header>    
-  //   <p class="tweet-content">${tweetData.content.text}</p>
-  // <footer class="tweet-footer"> ${tweetData.created_at}
-  //   <div class="icons">
-  //     <img class="hover" src="http://simpleicon.com/wp-content/uploads/flag.png">
-  //     <img class="hover" src="https://cdn0.iconfinder.com/data/icons/arrows-1-5/128/Retweet-Refresh-Reply-Sync-Tweet-Arrow-Motion-512.png">
-  //     <img class="hover" src="https://www.freeiconspng.com/uploads/love-heart-icon-14.png">
-  //   </div>
-  // </footer>
-  // </article>`);
-  return $makeArticle;
+    return $makeArticle;
 }
 
 renderTweets(data);
