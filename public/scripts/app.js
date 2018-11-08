@@ -28,10 +28,8 @@ $(() => {
     return $makeArticle;
   }
 
-  // renderTweets(data);
-
   //  Form Submission Using jQuery/AJAX
-  $(".tweet-form").submit(function (event) {
+  $('.tweet-form').submit(function (event) {
     event.preventDefault();
     $.ajax({
       type: 'POST',
@@ -39,22 +37,21 @@ $(() => {
       data: $('.tweet-form').serialize(),
     })
     .then(function (data) {
-      console.log(data);
+      loadTweets(); // callback function - asynchronous. need to call this function to load the tweet
+      $('.tweet-form')[0].reset();
     });
   });
 
-
   //  Fetching tweets with AJAX
   function loadTweets(event) {
-    // event.preventDefault();
     $.ajax({
       type: 'GET',
       url: '/tweets',
       data: $('.tweet-form').serialize(),
-      success: function(results) {
+      success: function (results) {
         renderTweets(results);
       },
-      error: function(err) {
+      error: function (err) {
         console.log('Error: Failed to called AJAX', err);
       }
     });
