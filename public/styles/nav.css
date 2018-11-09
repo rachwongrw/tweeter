@@ -6,7 +6,8 @@ html {
 }
 
 nav {
-  background: #00a087;
+  background: #265aa8;
+  display: flex;
   height: 80px;
   top: 0;
   left: 0;

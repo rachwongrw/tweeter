@@ -76,4 +76,13 @@ $(() => { //  IIFE to load HTML before the JS
     });
   }
 
+  //  Toggle form
+  $(function() {
+    $('.new-tweet').hide(); //  hide the form on load
+    $('button').click(function() { // when the (compose) button is clicked...
+      $('.new-tweet').slideToggle();  // slide down the compose form
+      $('textarea').focus();  // Auto select the textarea
+    })
+  }) 
+  
 });
