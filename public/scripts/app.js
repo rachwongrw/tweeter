@@ -27,20 +27,18 @@ $(() => { //  IIFE to load HTML before the JS
 
     return $makeArticle;
   }
-
   //  Form Validation
   $('form').submit(function (event) {
     event.preventDefault(); //  prevent the button from firing
     const formContent = $(this).serialize(); // create text string from the content of the form
     const textLength = $('textarea').val().length;  // this will find the actual length
+    
     function validateForm() {    
-      if (textLength > 140) {    // if text length is > 140 then prompt user and stop from submitting tweet
-        event.stopPropagation();
-        alert("Dayum, you got a lot to say...Tweet is too long!");
+      if (textLength > 140) {    // if text length is > 140 then prompt user and stop from submitting twee
+        $('.errMessage').text("Dayum, you got a lot to say...Tweet is too long!");
         return false;
       } else if (textLength === 0) { // if there is nothing in textarea, prompt user and stop from submitting tweet
-        event.stopPropagation();
-        alert('Pop a tweet in, it\'s empty!');
+        $('.errMessage').text('Pop a tweet in, it\'s empty!');
         return false;
       } else {
         return true; // else the form is valid
@@ -55,6 +53,7 @@ $(() => { //  IIFE to load HTML before the JS
         data: formContent,
       })
       .then(function (data) {
+        $('#tweetErrorMessage').text('');
         loadTweets(); //  call on loadtweets to render to the page. (asych - callback function)
         $('.tweet-form')[0].reset(); // clear the input area of form 
       })
@@ -84,5 +83,14 @@ $(() => { //  IIFE to load HTML before the JS
       $('textarea').focus();  // Auto select the textarea
     })
   }) 
-  
+
+  // Display error on form  
+  var displayErrors = function() {
+    var form = $(this),
+        errorList = $('textarea', form );
+    var showErrorList = function() {
+      errorList.empty();
+
+    }
+  }
 });
