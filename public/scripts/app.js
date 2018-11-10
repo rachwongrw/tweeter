@@ -6,25 +6,7 @@ $(() => { //  IIFE to load HTML before the JS
       const $eachTweet = createTweetElement(i);
       $('#tweets-container').prepend($eachTweet); //prepend to have the latest tweet to add to the the top
     })
-  }
-
-  // Add date -days ago
-  // function date(givenDate) {
-  //   var myObj = $.parseJSON(givenDate.created_at)
-  //       myDate = new Date(1000*myObj.created_at);
-    
-  //   console.log(myDate.toString());
-  //   console.log(myDate.toLocaleString());
-  //   console.log(myDate.toUTCString());
-  // }
-
-  // function getDate(data) {
-  //   // var data = {"date_created":"1273185387"};
-  //   var date = new Date(parseInt(data.created_at, 10) * 1000);
-  //   console.log(date);
-  //   console.log(date.toLocaleString());
-  // }
-    
+  } 
   
   function timeSince(date) {
     var seconds = Math.floor((new Date() - date) / 1000);
@@ -51,9 +33,6 @@ $(() => { //  IIFE to load HTML before the JS
     }
     return Math.floor(seconds) + " seconds ago";
   }
-  // var aDay = 24*60*60*1000
-  // console.log(timeSince(new Date(Date.now()-aDay)));
-  // console.log(timeSince(new Date(Date.now()-aDay*2)));
 
   function createTweetElement(data) {
     const $makeArticle = $(`<article>`).addClass('tweet'); // make empty article
@@ -77,7 +56,7 @@ $(() => { //  IIFE to load HTML before the JS
   $('form').submit(function (event) {
     event.preventDefault(); //  prevent the button from firing
     const formContent = $(this).serialize(); // create text string from the content of the form
-    const textLength = $('textarea').val().length;  // this will find the actual length
+    const textLength = $('.textarea').val().length;  // this will find the actual length
     
     function validateForm() {    
       if (textLength > 140) {    // if text length is > 140 then prompt user and stop from submitting twee
@@ -102,6 +81,7 @@ $(() => { //  IIFE to load HTML before the JS
         $('#tweetErrorMessage').text('');
         loadTweets(); //  call on loadtweets to render to the page. (asych - callback function)
         $('.tweet-form')[0].reset(); // clear the input area of form 
+        $('#tweetCounter').text(140); // reset counter  
       })
     }
   })

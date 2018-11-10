@@ -1,6 +1,5 @@
 $(document).ready(function () {
-  //console.log('it is working');
-  $('textarea').on('input', function (event) { 
+  $('.textarea').on('input', function (event) { 
     let count = 140 - this.textLength;
     
     $('#tweetCounter').text(count);

@@ -5,7 +5,7 @@
   margin: 8px 0;
   width: 100%;
   border-radius: 4px;
-  background-color: #eee;
+  background-color: #e4e4e4;
   border-radius: 8px; 
 }
 
@@ -64,7 +64,7 @@ article.tweet {
 }
 
 article.tweet {
-  background-color: #eee;
+  background-color: #e4e4e4;
   border: 1px solid #d1d1d1;
   border-radius: 8px;
 }
