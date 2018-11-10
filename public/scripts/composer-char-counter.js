@@ -8,12 +8,7 @@ $(document).ready(function () {
       $('#tweetCounter').addClass('error');
     } else {
       $('#tweetCounter').removeClass('error');
-
     }
-      //$(this).next().next().addClass('error');  //  addClass is access CSS to make it red
-    // } else if (count > 0 && $(this).next().next().hasClass('error')) {  // if count > 0 (true) and 'counter has error class' is false - then this won't fire
-    //   $(this).next().next().removeClass('error'); //  this will try and fire if we didn't have the conditionals - i.e. removing the error class when its not applied.
-    // }
   });
 });
 

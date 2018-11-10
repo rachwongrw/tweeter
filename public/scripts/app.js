@@ -8,7 +8,52 @@ $(() => { //  IIFE to load HTML before the JS
     })
   }
 
-  // renderTweets(data);
+  // Add date -days ago
+  // function date(givenDate) {
+  //   var myObj = $.parseJSON(givenDate.created_at)
+  //       myDate = new Date(1000*myObj.created_at);
+    
+  //   console.log(myDate.toString());
+  //   console.log(myDate.toLocaleString());
+  //   console.log(myDate.toUTCString());
+  // }
+
+  // function getDate(data) {
+  //   // var data = {"date_created":"1273185387"};
+  //   var date = new Date(parseInt(data.created_at, 10) * 1000);
+  //   console.log(date);
+  //   console.log(date.toLocaleString());
+  // }
+    
+  
+  function timeSince(date) {
+    var seconds = Math.floor((new Date() - date) / 1000);
+    var interval = Math.floor(seconds / 31536000);
+  
+    if (interval > 1) {
+      return interval + " years ago";
+    }
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+      return interval + " months ago";
+    }
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+      return interval + " days ago";
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+      return interval + " hours ago";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+      return interval + " minutes ago";
+    }
+    return Math.floor(seconds) + " seconds ago";
+  }
+  // var aDay = 24*60*60*1000
+  // console.log(timeSince(new Date(Date.now()-aDay)));
+  // console.log(timeSince(new Date(Date.now()-aDay*2)));
 
   function createTweetElement(data) {
     const $makeArticle = $(`<article>`).addClass('tweet'); // make empty article
@@ -19,7 +64,7 @@ $(() => { //  IIFE to load HTML before the JS
     // add tweet content
     const $tweetContent = $(`<p>`).text(data.content.text).addClass('tweet-content').appendTo($makeArticle);
     // add footer
-    const $makeFooter = $(`<footer>`).text(data.created_at).addClass('tweet-footer').appendTo($makeArticle);
+    const $makeFooter = $(`<footer>`).text(timeSince(data.created_at)).addClass('tweet-footer').appendTo($makeArticle);
     const $addIcons = $(`<div>`).addClass('icons').appendTo($makeFooter); // add div for icons
     const $addFlagIcon = $(`<i class="fas fa-flag"></i>`).appendTo($addIcons); // add each icon
     const $addRetweetIcon = $(`<i class="fas fa-retweet"></i>`).appendTo($addIcons);
@@ -27,6 +72,7 @@ $(() => { //  IIFE to load HTML before the JS
 
     return $makeArticle;
   }
+  
   //  Form Validation
   $('form').submit(function (event) {
     event.preventDefault(); //  prevent the button from firing
@@ -65,7 +111,7 @@ $(() => { //  IIFE to load HTML before the JS
     $.ajax({
       type: 'GET',
       url: '/tweets',
-      data: $('.tweet-form').serialize(),
+      // data: $('.tweet-form').serialize(),
       success: function (results) {
         renderTweets(results);
       },
@@ -94,3 +140,5 @@ $(() => { //  IIFE to load HTML before the JS
     }
   }
 });
+
+/* source for time function: https://stackoverflow.com/questions/3177836/how-to-format-time-since-xxx-e-g-4-minutes-ago-similar-to-stack-exchange-site */

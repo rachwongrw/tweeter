@@ -3,8 +3,8 @@
 const userHelper    = require("../lib/util/user-helper")
 
 const express       = require('express');
-const tweetsRoutes  = express.Router();
-
+const tweetsRoutes  = express.Router(); // dependency injection - tweetRoutes object depends
+                                        // upon the DataHelpers arg, & it's being passed in (injected) from outside
 module.exports = function (DataHelpers) {
 
   tweetsRoutes.get('/', function(req, res) {
