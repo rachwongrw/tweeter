@@ -1,10 +1,10 @@
-$(() => { //  IIFE to load HTML before the JS 
+$(() => {
   loadTweets(); 
 
   function renderTweets(data) {
     data.forEach(function (i) {
       const $eachTweet = createTweetElement(i);
-      $('#tweets-container').prepend($eachTweet); //prepend to have the latest tweet to add to the the top
+      $('#tweets-container').prepend($eachTweet);
     })
   } 
   
@@ -37,17 +37,17 @@ $(() => { //  IIFE to load HTML before the JS
   function createTweetElement(data) {
     const $makeArticle = $(`<article>`).addClass('tweet'); // make empty article
     const $makeHeader = $(`<header>`).addClass('tweet-header').appendTo($makeArticle); // make header
-    const $addDP = $(`<img>`).prop(`src`, data.user.avatars.small).appendTo($makeHeader); //  add icon to header
-    const $addName = $(`<h2>`).text(data.user.name).appendTo($makeHeader); // add name to header
-    const $addHandle = $(`<span>`).text(data.user.handle).appendTo($makeHeader); // add handle to header
+    $(`<img>`).prop(`src`, data.user.avatars.small).appendTo($makeHeader); //  add icon to header
+    $(`<h2>`).text(data.user.name).appendTo($makeHeader); // add name to header
+    $(`<span>`).text(data.user.handle).appendTo($makeHeader); // add handle to header
     // add tweet content
-    const $tweetContent = $(`<p>`).text(data.content.text).addClass('tweet-content').appendTo($makeArticle);
+    $(`<p>`).text(data.content.text).addClass('tweet-content').appendTo($makeArticle);
     // add footer
     const $makeFooter = $(`<footer>`).text(timeSince(data.created_at)).addClass('tweet-footer').appendTo($makeArticle);
     const $addIcons = $(`<div>`).addClass('icons').appendTo($makeFooter); // add div for icons
-    const $addFlagIcon = $(`<i class="fas fa-flag"></i>`).appendTo($addIcons); // add each icon
-    const $addRetweetIcon = $(`<i class="fas fa-retweet"></i>`).appendTo($addIcons);
-    const $addHeartIcon = $(`<i class="fas fa-heart"></i>`).appendTo($addIcons);
+    $(`<i class="fas fa-flag"></i>`).appendTo($addIcons); // add each icon
+    $(`<i class="fas fa-retweet"></i>`).appendTo($addIcons);
+    $(`<i class="fas fa-heart"></i>`).appendTo($addIcons);
 
     return $makeArticle;
   }
