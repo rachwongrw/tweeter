@@ -6,9 +6,9 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
-!["Tweeter home page"](#)
-!["Toggle compose box"]()
-!["Hover feature on tweets"]()
+!["Tweeter home page"](https://github.com/rachwongrw/tweeter/blob/master/screenshots/Tweeter-home-page.png)
+!["Toggle compose box"](https://github.com/rachwongrw/tweeter/blob/master/screenshots/Toggle-compose-box.png)
+!["Hover feature on tweets"](https://github.com/rachwongrw/tweeter/blob/master/screenshots/on-hover-feature.png)
 
 ## Getting Started
 
