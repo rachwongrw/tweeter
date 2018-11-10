@@ -6,8 +6,8 @@ $(() => { //  IIFE to load HTML before the JS
       const $eachTweet = createTweetElement(i);
       $('#tweets-container').prepend($eachTweet); //prepend to have the latest tweet to add to the the top
     })
-  }
-
+  } 
+  
   function timeSince(date) {
     var seconds = Math.floor((new Date() - date) / 1000);
     var interval = Math.floor(seconds / 31536000);
@@ -34,6 +34,35 @@ $(() => { //  IIFE to load HTML before the JS
     return Math.floor(seconds) + " seconds ago";
   }
 
+<<<<<<< HEAD
+  function timeSince(date) {
+    var seconds = Math.floor((new Date() - date) / 1000);
+    var interval = Math.floor(seconds / 31536000);
+  
+    if (interval > 1) {
+      return interval + " years ago";
+    }
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+      return interval + " months ago";
+    }
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+      return interval + " days ago";
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+      return interval + " hours ago";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+      return interval + " minutes ago";
+    }
+    return Math.floor(seconds) + " seconds ago";
+  }
+
+=======
+>>>>>>> feature/mongodb
   function createTweetElement(data) {
     const $makeArticle = $(`<article>`).addClass('tweet'); // make empty article
     const $makeHeader = $(`<header>`).addClass('tweet-header').appendTo($makeArticle); // make header
@@ -51,11 +80,12 @@ $(() => { //  IIFE to load HTML before the JS
 
     return $makeArticle;
   }
+  
   //  Form Validation
   $('form').submit(function (event) {
     event.preventDefault(); //  prevent the button from firing
     const formContent = $(this).serialize(); // create text string from the content of the form
-    const textLength = $('textarea').val().length;  // this will find the actual length
+    const textLength = $('.textarea').val().length;  // this will find the actual length
     
     function validateForm() {    
       if (textLength > 140) {    // if text length is > 140 then prompt user and stop from submitting twee
@@ -80,7 +110,11 @@ $(() => { //  IIFE to load HTML before the JS
         $('#tweetErrorMessage').text('');
         loadTweets(); //  call on loadtweets to render to the page. (asych - callback function)
         $('.tweet-form')[0].reset(); // clear the input area of form 
+<<<<<<< HEAD
         $('#tweetCounter').text(140);
+=======
+        $('#tweetCounter').text(140); // reset counter  
+>>>>>>> feature/mongodb
       })
     }
   })
@@ -90,7 +124,7 @@ $(() => { //  IIFE to load HTML before the JS
     $.ajax({
       type: 'GET',
       url: '/tweets',
-      data: $('.tweet-form').serialize(),
+      // data: $('.tweet-form').serialize(),
       success: function (results) {
         renderTweets(results);
       },
@@ -119,3 +153,5 @@ $(() => { //  IIFE to load HTML before the JS
     }
   }
 });
+
+/* source for time function: https://stackoverflow.com/questions/3177836/how-to-format-time-since-xxx-e-g-4-minutes-ago-similar-to-stack-exchange-site */
